@@ -1,0 +1,179 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Moving Goods | Developers
+
+Using the Postmates Delivery API, developers can integrate our on-demand local delivery platform into their applications. The API is designed to allow application developers to check prices, schedules, book a delivery, then follow updates on that delivery till completion.
+## Quick Start [/docs#quick-start]
+## Terminology [/docs#terminology]
+## Authentication [/docs#authentication]
+## Error Handling [/docs#error-handling]
+## Overview [/docs#overview]
+
+**To get started using the Postmates Delivery API:**
+
+- Sign up for a developer account.
+- Locate your customer ID and test API key in the developer dashboard.
+- Check out a few tutorials on how to use the API: cURL, Postman.
+
+#### What can the API do?
+You can use the Postmates API to utilize our fleet of couriers to deliver your products within our geographic zones.
+
+Here is the flow of events that developers most commonly follow when using our API:
+
+- To see if a delivery is possible, request a delivery quote. 
+This endpoint takes in two addresses and returns a fee, ETA, and other information about a potential delivery.
+- After you have evaluated whether the quoted price and delivery estimate meets your needs, you can create a delivery.
+- While a delivery is in progress, you can track its status in real-time in the developer dashboard, by polling the API, or with webhooks.
+#### What can be delivered using the API?
+
+You can use the Postmates API to deliver most items that can be carried by an average person, including alcohol. Please see our Shipping Policy & Terms of Service for more information on what can and can not be delivered on our platform.
+
+## Delivery [/docs#delivery]
+### Get Delivery [GET]
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?",
+            "choices": [
+                "Swift",
+                "Python",
+                "Objective-C",
+                "Ruby"
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 0
+                    }
+                ]
+            }
+### Create New Delivery  [POST]
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 2048
+                    }, {
+                        "choice": "Python",
+                        "votes": 1024
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 512
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 256
+                    }
+                ]
+            }
+        ]
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 0
+                    }
+                ]
+            }
+
+### Edit Delivery [PUT]
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?",
+            "choices": [
+                "Swift",
+                "Python",
+                "Objective-C",
+                "Ruby"
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 0
+                    }
+                ]
+            }
+## Client Libraries [/docs#libraries]
+## Policies [/docs#policis]
+## Support [/docs#support]
