@@ -11,24 +11,31 @@
  */
 package io.swagger.client.api
 
+import io.swagger.client.model.DeliveryRequest
+import io.swagger.client.model.DeliveryResponse
 import io.swagger.client.core._
 import io.swagger.client.core.CollectionFormats._
 import io.swagger.client.core.ApiKeyLocations._
 
-object MgCoreControllerApi {
+object DeliveryApi {
 
   /**
-   * 
+   * API to Create a Delivery from Moving Goods 
    * 
    * Expected answers:
-   *   code 200 : String (OK)
+   *   code 200 : DeliveryResponse (OK)
+   *   code 201 :  (Created)
    *   code 401 :  (Unauthorized)
    *   code 403 :  (Forbidden)
    *   code 404 :  (Not Found)
+   * 
+   * @param deliveryRequest deliveryRequest
    */
-  def currentUsingGET(): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.GET, "https://mg-core-service-dev.apps.pp01i.edc1.cf.ford.com/api/", "/delivery/test", "application/json")
-      .withSuccessResponse[String](200)
+  def createDelivery(deliveryRequest: DeliveryRequest): ApiRequest[DeliveryResponse] =
+    ApiRequest[DeliveryResponse](ApiMethods.POST, "https://mg-core-service-dev.apps.pp01i.edc1.cf.ford.com/api/", "/delivery", "application/json")
+      .withBody(deliveryRequest)
+      .withSuccessResponse[DeliveryResponse](200)
+      .withErrorResponse[Unit](201)
       .withErrorResponse[Unit](401)
       .withErrorResponse[Unit](403)
       .withErrorResponse[Unit](404)

@@ -1,6 +1,6 @@
 /**
- * Moving Goods Microservices
- * FSM - Moving Goods Core Microservice - Delivery Service
+ * Moving Goods Delivery API
+ * Moving Goods Delivery Management API
  *
  * OpenAPI spec version: 0.0.2
  * 
